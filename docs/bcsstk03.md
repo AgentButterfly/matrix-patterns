@@ -94,7 +94,7 @@ $$
 ### Diagonal blocks support patterns
 
 $$
-v_i=0 for i\in\{4,5,6,18\}.
+v_i=0 \text{for} i\in\{4,5,6,18\}.
 $$
 
 These four blocks are diagonal and have 4 nonzero entries. The other 24 blocks have 8 nonzero entries and share the same support. The three corrections $\delta_i$ do not change the support.
@@ -171,31 +171,36 @@ R_A(i)=\bigl[
 \bigr].
 $$
 
-### Boundary and zero-entry conventions
+### Boundary cases
 
-The lists above are interpreted with the following rules:
+The general formulas apply to $5\le i\le108$.
+The first and last four rows are defined separately below.
 
-- For $k=1$, omit the first two pairs: there is no previous
-  coupling block $T_0$.
-- For $k=28$, omit the last two pairs: there is no next
-  coupling block $T_{28}$.
-- Omit any pair whose coefficient is zero. In particular,
-  $v_k=0$ for $k\in\{4,5,6,18\}$.
-
-Boundary pairs are omitted before evaluating their coefficients,
-so undefined parameters such as $a_0$ or $b_{28}$ are never used.
-
-With these conventions, each nonzero entry of row $i$ appears
-exactly once in $R_A(i)$. The column indices are distinct and
-listed in increasing order.
-
-Each list contains at most six pairs, and this maximum is
-attained. Thus the matrix has row sparsity 6 and, by symmetry,
-column sparsity 6:
+#### First block: $i=1,2,3,4$
 
 $$
-d=6.
+\begin{aligned}
+R_A(1)&=[(1,u_1),(4,v_1),(5,a_1),(8,b_1)],\\
+R_A(2)&=[(2,u_1),(3,-v_1),(6,a_1),(7,-b_1)],\\
+R_A(3)&=[(2,-v_1),(3,w_1),(6,b_1),(7,c_1)],\\
+R_A(4)&=[(1,v_1),(4,w_1),(5,-b_1),(8,c_1)].
+\end{aligned}
 $$
+
+Here $\delta_1=0$.
+
+#### Last block: $i=109,110,111,112$
+
+$$
+\begin{aligned}
+R_A(109)&=[(105,a_{27}),(108,-b_{27}),(109,u_{28}),(112,v_{28})],\\
+R_A(110)&=[(106,a_{27}),(107,b_{27}),(110,u_{28}),(111,-v_{28})],\\
+R_A(111)&=[(106,-b_{27}),(107,c_{27}),(110,-v_{28}),(111,w_{28})],\\
+R_A(112)&=[(105,b_{27}),(108,c_{27}),(109,v_{28}),(112,w_{28})].
+\end{aligned}
+$$
+
+Here $\delta_{28}=0$.
 ## 6. Connected components
 
 The two components are

@@ -1,7 +1,7 @@
 %% Choose the matrix
 % These match the "Group" and "Name" fields on SuiteSparse.
 group = 'HB';
-name  = 'bcsstk01';
+name  = 'bcsstm22';
 
 %% Set the download folder relative to this script
 scriptDir = fileparts(mfilename('fullpath'));

@@ -1,8 +1,8 @@
-# HB/bcsstk03 — structure and detected patterns
+# HB/bcsstk03
 
 [SuiteSparse Matrix Collection — HB/bcsstk03](https://sparse.tamu.edu/HB/bcsstk03)
 
-MATLAB indices, starting at 1. Unless stated otherwise, indices follow the original file ordering. 
+MATLAB indices, starting at 1. Unless stated otherwise, indices follow the original file ordering. The matrix in HB/bcsstk03 will be denoted A.
 
 ## General properties
 
@@ -17,15 +17,15 @@ MATLAB indices, starting at 1. Unless stated otherwise, indices follow the origi
 | Half-bandwidth $\max_{A_{ij}\ne0}\lvert i-j\rvert$ | 7 |
 
 
-## Support plot
+## Support visualization
 
 ![Original support, block close-up, and grouped connected components](images/bcsstk03.png)
 
 Each point represents a nonzero entry, regardless of its value or sign. The last panel uses the permutation defined in the connected-components section.
 
-## 1. Exact block-tridiagonal structure with blocks of size 4
+## 1. Exact structure of A
 
-Define, for $i=1,\ldots,28$,
+Using MATLAB submatrix notation, define for $i=1,\ldots,28$,
 
 $$
 I_i=\{4i-3,4i-2,4i-1,4i\},\qquad D_i=A(I_i,I_i),
@@ -85,7 +85,7 @@ u_i=A_{4i-3,4i-3},\quad v_i=A_{4i-3,4i},\quad
 w_i=A_{4i-1,4i-1},\quad \delta_i=A_{4i-2,4i-2}-u_i.
 $$
 
-Only 3 blocks have $$\delta_i \ne 0$$:
+Only 3 blocks have $$\delta_i \ne 0$$ :
 
 $$
 \delta_i=0\quad\text{for }i\notin\{21,25,27\}.
@@ -94,39 +94,108 @@ $$
 ### Diagonal blocks support patterns
 
 $$
-v_i=0\quad\Longleftrightarrow\quad i\in\{4,5,6,18\}.
+v_i=0 for i\in\{4,5,6,18\}.
 $$
 
 These four blocks are diagonal and have 4 nonzero entries. The other 24 blocks have 8 nonzero entries and share the same support. The three corrections $\delta_i$ do not change the support.
 
 ## 4. Exact repetitions amongst blocks
 
-| Family | Exactly identical blocks |
+| Family | Identical blocks |
 |---|---|
 | Diagonal blocks | $D_4=D_5=D_6$ |
 | Upper off-diagonal blocks | $T_3=T_4=T_5=T_6=T_7$ |
 | Upper off-diagonal blocks | $T_{17}=T_{18}$ |
 
-## 5. Scalar-diagonal description
+## 5. Row representation $R_A$
 
-The only occupied offsets are $0,\pm1,\pm3,\pm4,\pm5,\pm7$. The formulas below completely describe the upper triangle; the lower triangle follows by symmetry. Unlisted entries are zero.
+For a row index $i\in\{1,\ldots,112\}$, define its block index by
 
-| Offset $k$ | Position $(j,j+k)$ | Value | Index range |
-|---|---|---|---|
-| 0 | $(4i-3,4i-3)$ | $u_i$ | $1\le i\le28$ |
-| 0 | $(4i-2,4i-2)$ | $u_i+\delta_i$ | $1\le i\le28$ |
-| 0 | $(4i-1,4i-1)$ and $(4i,4i)$ | $w_i$ | $1\le i\le28$ |
-| 1 | $(4i-2,4i-1)$ | $-v_i$ | $1\le i\le28$ |
-| 1 | $(4i,4i+1)$ | $-b_i$ | $1\le i\le27$ |
-| 3 | $(4i-3,4i)$ | $v_i$ | $1\le i\le28$ |
-| 3 | $(4i-1,4i+2)$ | $b_i$ | $1\le i\le27$ |
-| 4 | $(4i-3,4i+1)$ and $(4i-2,4i+2)$ | $a_i$ | $1\le i\le27$ |
-| 4 | $(4i-1,4i+3)$ and $(4i,4i+4)$ | $c_i$ | $1\le i\le27$ |
-| 5 | $(4i-2,4i+3)$ | $-b_i$ | $1\le i\le27$ |
-| 7 | $(4i-3,4i+4)$ | $b_i$ | $1\le i\le27$ |
+$$
+k=\left\lfloor\frac{i-1}{4}\right\rfloor+1.
+$$
 
-The zeros of $v_i$ at indices $4,5,6,18$ create gaps along the diagonals with offsets 1 and 3.
+We describe $R_A(i)$ as a list of pairs $(j,A_{ij})$,
+where $j$ is a column index. The parameters are those defined
+in the block templates above.
 
+### Case 1: $i\equiv1\pmod4$
+
+$$
+R_A(i)=\bigl[
+(i-4,a_{k-1}),
+(i-1,-b_{k-1}),
+(i,u_k),
+(i+3,v_k),
+(i+4,a_k),
+(i+7,b_k)
+\bigr].
+$$
+
+### Case 2: $i\equiv2\pmod4$
+
+$$
+R_A(i)=\bigl[
+(i-4,a_{k-1}),
+(i-3,b_{k-1}),
+(i,u_k+\delta_k),
+(i+1,-v_k),
+(i+4,a_k),
+(i+5,-b_k)
+\bigr].
+$$
+
+### Case 3: $i\equiv3\pmod4$
+
+$$
+R_A(i)=\bigl[
+(i-5,-b_{k-1}),
+(i-4,c_{k-1}),
+(i-1,-v_k),
+(i,w_k),
+(i+3,b_k),
+(i+4,c_k)
+\bigr].
+$$
+
+### Case 4: $i\equiv0\pmod4$
+
+$$
+R_A(i)=\bigl[
+(i-7,b_{k-1}),
+(i-4,c_{k-1}),
+(i-3,v_k),
+(i,w_k),
+(i+1,-b_k),
+(i+4,c_k)
+\bigr].
+$$
+
+### Boundary and zero-entry conventions
+
+The lists above are interpreted with the following rules:
+
+- For $k=1$, omit the first two pairs: there is no previous
+  coupling block $T_0$.
+- For $k=28$, omit the last two pairs: there is no next
+  coupling block $T_{28}$.
+- Omit any pair whose coefficient is zero. In particular,
+  $v_k=0$ for $k\in\{4,5,6,18\}$.
+
+Boundary pairs are omitted before evaluating their coefficients,
+so undefined parameters such as $a_0$ or $b_{28}$ are never used.
+
+With these conventions, each nonzero entry of row $i$ appears
+exactly once in $R_A(i)$. The column indices are distinct and
+listed in increasing order.
+
+Each list contains at most six pairs, and this maximum is
+attained. Thus the matrix has row sparsity 6 and, by symmetry,
+column sparsity 6:
+
+$$
+d=6.
+$$
 ## 6. Connected components
 
 The two components are

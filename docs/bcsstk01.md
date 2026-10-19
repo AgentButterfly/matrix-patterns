@@ -2,7 +2,7 @@
 
 [SuiteSparse Matrix Collection — HB/bcsstk01](https://sparse.tamu.edu/HB/bcsstk01)
 
-All indices start at 1. Unless explicitly stated otherwise, the original matrix ordering is used. A block support is the set of its nonzero positions. Exact identities below refer to the stored coefficients; approximate scaling relations are labelled separately.
+MATLAB indices, starting at 1. Unless stated otherwise, indices follow the original file ordering. The studied matrix will be denoted A.
 
 ## General properties
 
@@ -10,21 +10,10 @@ All indices start at 1. Unless explicitly stated otherwise, the original matrix 
 |---|---|
 | Size | $48\times48$ |
 | Type | Real stiffness matrix |
-| Symmetry | Exactly symmetric: $A=A^\top$ |
-| Nonzero entries | 400, counting both triangles |
-| Nonnegative entries? | **No:** 200 strictly positive and 200 strictly negative entries |
-| Row sparsity | Maximum of **12** nonzero entries per row |
-| Column sparsity | Maximum of **12** nonzero entries per column |
-| $d$-sparsity | **$d=12$** |
+| Symmetry | symmetric |
+| Nonzero entries | 400 |
+| Sparsity coefficient | 12 |
 | Connected components of the support graph | **1**, containing all 48 indices |
-
-Here sparsity means
-
-$$
-d=\max\left\{\max_i\#\{j:A_{ij}\ne0\},\ \max_j\#\{i:A_{ij}\ne0\}\right\}.
-$$
-
-The original matrix cannot be split by a simultaneous row/column permutation into nonempty independent diagonal subsystems. The two chains described below arise by removing specified couplings, not by finding connected components of the original matrix.
 
 ## Support plots
 
@@ -34,10 +23,10 @@ The first panel shows the original support with a $6\times6$ block grid. The sec
 
 ## 1. Partition into eight blocks of size 6
 
-Define $K_{ij}\in\mathbb R^{6\times6}$ entrywise by
+Define $K_{ij}\in\mathbb R^{6\times6}$ by
 
 $$
-(K_{ij})_{rs}=A_{6(i-1)+r,\,6(j-1)+s},
+(K_{ij})_{rs}=A_{6(i-1)+r, 6(j-1)+s},
 \qquad 1\le i,j\le8,\quad1\le r,s\le6.
 $$
 
@@ -66,8 +55,6 @@ K_{34}=K_{12}^\top,\qquad K_{78}=K_{56}^\top.
 $$
 
 The four copies of $C$ follow the fixed placement rule $j=i+4$, for $i=1,\ldots,4$.
-
-The transpose relationships compare different blocks within the upper triangle; they are additional structure beyond the global identity $K_{ji}=K_{ij}^\top$.
 
 Set
 
@@ -149,34 +136,6 @@ $$
 
 The symbols in $\mathcal X$ and $\mathcal Y$ are independent parameters. The same construction is reused with different coupled index pairs.
 
-### 3.3 Template for the repeated block $C$
-
-The four identical blocks $C$ have the form
-
-$$
-C=\begin{pmatrix}
-\alpha&0&0&0&0&p\\
-0&\beta&0&0&0&0\\
-0&0&\alpha&-p&0&0\\
-0&0&p&\gamma&0&0\\
-0&0&0&0&\eta&0\\
--p&0&0&0&0&\gamma
-\end{pmatrix}.
-$$
-
-This is a third support template: the coupled pairs are $\{1,6\}$ and $\{3,4\}$. Its repeated diagonal entries and the signs of the four off-diagonal entries are part of the template.
-
-### 3.4 Support-template inventory
-
-| Family in the strictly upper block triangle | Blocks | Nonzeros per block |
-|---|---|---:|
-| $\mathcal X$ support | $K_{12},K_{34},K_{56},K_{78}$ | 10 |
-| $\mathcal Y$ support | $K_{14},K_{23},K_{67}$ | 10 |
-| $C$ support | $K_{15},K_{26},K_{37},K_{48}$ | 10 |
-| Exceptional support | $K_{38}=F$ | 18 |
-
-There are **three support templates among the eleven 10-entry blocks**, plus one exceptional block. Transposition does not change these three supports, although it changes coefficients.
-
 ## 4. Common template for the diagonal blocks
 
 Each $D_i=K_{ii}$ has the exact form
@@ -213,11 +172,6 @@ $$
 | $D_5$ | Common support without symmetric pairs $(2,6)$ and $(3,5)$ | 14 |
 | $D_8$ | Missing pairs as in $D_5$, plus the exceptional pairs of $D_3$ | 18 |
 
-Each pair includes its transposed position. The diagonal blocks contain 144 nonzeros altogether, giving
-
-$$
-\operatorname{nnz}(A)=144+2(11\times10+18)=400.
-$$
 
 ## 5. Compact form of the upper-right region
 
@@ -231,12 +185,6 @@ The complete upper-right region is
 
 $$
 U=\begin{pmatrix}
-K_{15}&K_{16}&K_{17}&K_{18}\\
-K_{25}&K_{26}&K_{27}&K_{28}\\
-K_{35}&K_{36}&K_{37}&K_{38}\\
-K_{45}&K_{46}&K_{47}&K_{48}
-\end{pmatrix}
-=\begin{pmatrix}
 C&0&0&0\\0&C&0&0\\0&0&C&F\\0&0&0&C
 \end{pmatrix}.
 $$
@@ -246,8 +194,6 @@ Therefore
 $$
 \boxed{U=I_4\otimes C+E_{34}^{(4)}\otimes F.}
 $$
-
-All unlisted blocks in this region are zero. Global block $K_{38}$ occupies local position $(3,4)$ within $U$.
 
 ## 6. Two block-tridiagonal chains plus structured couplings
 
@@ -303,43 +249,3 @@ $$
 $$
 
 Corresponding connecting blocks have exactly the same supports. Therefore, outside their diagonal $6\times6$ blocks, the two chain supports coincide exactly.
-
-### 7.2 Localized differences between diagonal-block supports
-
-All coordinates below are local to a $6\times6$ block. The table lists the symmetric difference of the supports, not differences of coefficient values.
-
-| Corresponding blocks | Differing support positions |
-|---|---|
-| $D_1,D_5$ | $(2,6),(6,2),(3,5),(5,3)$ |
-| $D_2,D_6$ | None |
-| $D_3,D_7$ | $(2,3),(3,2),(5,6),(6,5)$ |
-| $D_4,D_8$ | All eight positions listed above |
-
-The full $24\times24$ supports differ at only **16 positions**.
-
-### 7.3 Approximate scaling relationships with single-entry corrections
-
-The coefficient patterns additionally satisfy
-
-$$
-\widehat X=\frac54X-255\,000E_{33}^{(6)}+\varepsilon_X,
-$$
-
-$$
-\widehat Y=\frac54Y-425\,000E_{11}^{(6)}+\varepsilon_Y.
-$$
-
-These are **not exact scaling identities** for the stored data. The maximum absolute residual entries are approximately
-
-$$
-\max_{r,s}|(\varepsilon_X)_{rs}|=7.5\times10^{-9},\qquad
-\max_{r,s}|(\varepsilon_Y)_{rs}|=7.5\times10^{-4}.
-$$
-
-This records a common factor $5/4$ with one distinguished diagonal correction per connecting template, up to the stated small residuals. It does not imply that the entire second chain is $5/4$ times the first.
-
-## Sources and verification
-
-- [SuiteSparse Matrix Collection](https://sparse.tamu.edu/HB/bcsstk01).
-- [Matrix Market data, NIST mirror](https://math.nist.gov/pub/MatrixMarket2/Harwell-Boeing/bcsstruc1/bcsstk01.mtx.gz).
-- Compiled and checked against the stored Matrix Market coefficients on 19 October 2026. Support tests use literal nonzeros, without thresholding. Approximate relationships are isolated in Section 7.3.

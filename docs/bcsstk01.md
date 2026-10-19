@@ -189,6 +189,8 @@ We use $\Vert$ for list concatenation and define the column-shift operation
 
 ### 8.1 Compact representation
 
+Using the decomposition above of A:
+
 ```math
 R_A^{(1)}(i)=
 \begin{cases}
@@ -256,7 +258,7 @@ q=\left\lfloor\frac{i-1}{6}\right\rfloor+1,
 Here $q$ is the block row index and $r$ is the local row
 index within a $6\times6$ block.
 
-Let $\mathcal L_q$ be the list of pairs $\mathcal(j,$K_{qj}$)$ specifying the nonzero blocks in block row $q$
+Let $\mathcal L_q$ be the list of pairs (j,$K_{qj}$) specifying the nonzero blocks in block row $q$
 
 | Block row $q$ | List $\mathcal L_q$ |
 |---|---|

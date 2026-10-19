@@ -94,7 +94,7 @@ $$
 ### Diagonal blocks support patterns
 
 $$
-v_i=0 \text{for} i\in\{4,5,6,18\}.
+v_i=0\quad\text{for }i\in\{4,5,6,18\}.
 $$
 
 These four blocks are diagonal and have 4 nonzero entries. The other 24 blocks have 8 nonzero entries and share the same support. The three corrections $\delta_i$ do not change the support.

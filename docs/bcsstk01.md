@@ -1,4 +1,4 @@
-# HB/bcsstk01 — structure and detected patterns
+# HB/bcsstk01 
 
 [SuiteSparse Matrix Collection — HB/bcsstk01](https://sparse.tamu.edu/HB/bcsstk01)
 
@@ -26,7 +26,7 @@ The first panel shows the original support with a $6\times6$ block grid. The sec
 Define $K_{ij}\in\mathbb R^{6\times6}$ by
 
 $$
-(K_{ij})_{rs}=A_{6(i-1)+r, 6(j-1)+s},
+(K_{ij})_{rs}=A_{6(i-1)+r, 6(j-1)+s}
 \qquad 1\le i,j\le8,\quad1\le r,s\le6.
 $$
 
@@ -39,7 +39,7 @@ K_{12},K_{14},K_{15},K_{23},K_{26},K_{34},
 K_{37},K_{38},K_{48},K_{56},K_{67},K_{78}.
 $$
 
-Together with their transposes, this gives **32 nonzero blocks out of 64**. Every other block is identically zero.
+Together with their transposes, this gives **32 nonzero blocks out of 64**.
 
 ## 2. Exact block repetitions and transpose relationships
 
@@ -103,7 +103,7 @@ $$
 Equivalently,
 
 $$
-\mathcal X=\operatorname{diag}(a,b,c,d,e,f)
+\mathcal X=\mathrm{diag}(a,b,c,d,e,f)
 +p(E_{15}^{(6)}-E_{51}^{(6)})
 +q(E_{24}^{(6)}-E_{42}^{(6)}).
 $$
@@ -129,7 +129,7 @@ $$
 or
 
 $$
-\mathcal Y=\operatorname{diag}(a,b,c,d,e,f)
+\mathcal Y=\mathrm{diag}(a,b,c,d,e,f)
 +p(E_{26}^{(6)}-E_{62}^{(6)})
 +q(E_{35}^{(6)}-E_{53}^{(6)}).
 $$
@@ -178,21 +178,21 @@ $$
 Split the matrix after index 24:
 
 $$
-A=\begin{pmatrix}L&U\\U^\top&R\end{pmatrix},\qquad L,U,R\in\mathbb R^{24\times24}.
+A=\begin{pmatrix}
+L&U\\
+U^\top&R
+\end{pmatrix},\qquad L,U,R\in\mathbb R^{24\times24}.
 $$
 
 The complete upper-right region is
 
 $$
 U=\begin{pmatrix}
-C&0&0&0\\0&C&0&0\\0&0&C&F\\0&0&0&C
-\end{pmatrix}.
-$$
-
-Therefore
-
-$$
-\boxed{U=I_4\otimes C+E_{34}^{(4)}\otimes F.}
+C&0&0&0\\
+0&C&0&0\\
+0&0&C&F\\
+0&0&0&C
+\end{pmatrix} =I_4\otimes C+E_{34}^{(4)}\otimes F
 $$
 
 ## 6. Two block-tridiagonal chains plus structured couplings
@@ -200,7 +200,7 @@ $$
 Set $U,U^\top,K_{14},K_{41}$ to zero, retaining all other entries. The resulting matrix is
 
 $$
-\widetilde A=\operatorname{diag}(B,D),
+\widetilde A=\mathrm{diag}(B,D),
 $$
 
 where
@@ -232,7 +232,7 @@ the original matrix has the exact decomposition
 
 $$
 \boxed{A=\widetilde A+\mathcal R,\qquad
-\mathcal R=\begin{pmatrix}H&U\\U^\top&0\end{pmatrix}.}
+\mathcal R=\begin{pmatrix}H&U\\ U^\top&0 \end{pmatrix}.}
 $$
 
 The symbol $\mathcal R$ denotes the removed couplings, whereas $R$ above denotes the original lower-right region. This is an exact additive decomposition, not a claim that discarding $\mathcal R$ gives a sufficiently accurate approximation.

@@ -80,7 +80,7 @@ $$
 
 The eight diagonal blocks are numerically distinct.
 
-## 3. Templates for the ordinary off-diagonal blocks
+## 3. Templates for the off-diagonal blocks
 
 Write $E_{rs}^{(n)}$ for the $n\times n$ matrix with a single 1 at $(r,s)$. All remaining entries are zero. 
 
@@ -106,44 +106,9 @@ $$
 +q(E_{35}^{(6)}-E_{53}^{(6)}).
 $$
 
-## 4. Common template for the diagonal blocks
+## 4. Compact form of A
 
-Each $D_i=K_{ii}$ has the exact form
-
-$$
-D_i=\begin{pmatrix}
-d_{i,1}&0&0&0&p_i&q_i\\
-0&d_{i,2}&h_i&r_i&0&s_i\\
-0&h_i&d_{i,3}&t_i&u_i&0\\
-0&r_i&t_i&d_{i,4}&0&0\\
-p_i&0&u_i&0&d_{i,5}&\ell_i\\
-q_i&s_i&0&0&\ell_i&d_{i,6}
-\end{pmatrix}.
-$$
-
-The parameters are the entries at the displayed positions; parameters from different blocks are not implicitly equal.
-
-The exceptional couplings obey
-
-$$
-h_i=\ell_i=0\quad\text{for }i\notin\{3,8\},
-$$
-
-and the missing couplings obey
-
-$$
-s_5=u_5=s_8=u_8=0.
-$$
-
-| Blocks | Support description | Nonzeros per block |
-|---|---|---:|
-| $D_1,D_2,D_4,D_6,D_7$ | Common support with $h_i=\ell_i=0$ | 18 |
-| $D_3$ | Common support plus symmetric pairs $(2,3)$ and $(5,6)$ | 22 |
-| $D_5$ | Common support without symmetric pairs $(2,6)$ and $(3,5)$ | 14 |
-| $D_8$ | Missing pairs as in $D_5$, plus the exceptional pairs of $D_3$ | 18 |
-
-
-## 5. Compact form of the upper-right region
+### 5.1 Compact form of the upper-right region
 
 Split the matrix after index 24:
 
@@ -165,7 +130,7 @@ C&0&0&0\\
 \end{pmatrix} =I_4\otimes C+E_{34}^{(4)}\otimes F
 $$
 
-## 6. Two block-tridiagonal chains plus structured couplings
+### 5.2 Two block-tridiagonal chains
 
 Set $U,U^\top,K_{14},K_{41}$ to zero, retaining all other entries. The resulting matrix is
 
@@ -197,35 +162,7 @@ $$
 (\widehat X,\widehat Y,\widehat X^\top).
 $$
 
-Writing
-
-$$
-H=E_{14}^{(4)}\otimes Y+E_{41}^{(4)}\otimes Y^\top,
-$$
-
-the original matrix has the exact decomposition
-
-$$
-\boxed{A=\widetilde A+\mathcal R,\qquad
-\mathcal R=\begin{pmatrix}H&U\\ U^\top&0 \end{pmatrix}.}
-$$
-
-The symbol $\mathcal R$ denotes the removed couplings, whereas $R$ above denotes the original lower-right region. This is an exact additive decomposition, not a claim that discarding $\mathcal R$ gives a sufficiently accurate approximation.
-
-## 8. Row representations derived from the block structure
-
-For a matrix $M$, let $R_M(i)$ denote the list of pairs $(j,M_{ij})$
-corresponding to the nonzero entries of row $i$.
-
-We use $\Vert$ for list concatenation and define the column-shift operation
-
-```math
-\mathcal S_t(L)=\bigl[(s+t,v):(s,v)\in L\bigr].
-```
-
-### 8.1 Additive decomposition of A
-
-Using the two block-tridiagonal chains $B,D$ defined above,
+The original matrix thus has the exact decomposition:
 
 ```math
 A=
@@ -239,32 +176,18 @@ U^\top & 0
 \end{pmatrix},
 ```
 
-where
+## 8. Row representations of A
+
+For a matrix $M$, let $R_M(i)$ denote the list of pairs $(j,M_{ij})$
+corresponding to the nonzero entries of row $i$.
+
+We use $\Vert$ for list concatenation and define the column-shift operation
 
 ```math
-U=I_4\otimes C+E_{34}^{(4)}\otimes F.
+\mathcal S_t(L)=\bigl[(s+t,v):(s,v)\in L\bigr].
 ```
 
-Here $E_{ab}^{(n)}$ denotes the $n\times n$ matrix with a single
-1 at position $(a,b)$ and zeros elsewhere.
-
-The chains $B,D$ have size $24\times24$, and the blocks
-$Y,C,F$ have size $6\times6$. In particular, $B$ does not
-include the couplings $K_{14}=Y$ and $K_{41}=Y^\top$:
-these are supplied by the two explicit Kronecker terms.
-
-The four terms in this decomposition have pairwise disjoint
-supports. Their row lists can therefore be concatenated
-without combining contributions at the same column.
-
-### 8.2 First representation: composition of the larger regions
-
-For the first half of the matrix, start with the corresponding
-row of $B$, add the row of $U$ with a column shift of 24, and
-include the additional $Y$ or $Y^\top$ coupling where applicable.
-
-For the second half, combine the corresponding row of $U^\top$
-with the shifted row of $D$.
+### 8.1 Compact representation
 
 ```math
 R_A^{(1)}(i)=
@@ -285,9 +208,6 @@ R_{U^\top}(i-24)
 & 25\le i\le48.
 \end{cases}
 ```
-
-The arguments of each local representation are within its valid
-row range. No out-of-range indices or undefined blocks are introduced.
 
 #### Row representations of U and its transpose
 
@@ -324,25 +244,19 @@ R_{U^\top}(t)=
 \end{cases}
 ```
 
-The four copies of $C$ are handled by one placement rule.
-The block $F$ contributes only to block row 3 of $U$, and
-$F^\top$ only to block row 4 of $U^\top$.
+### 8.2 More explicit representation
 
-### 8.3 Second representation: direct composition of 6 × 6 blocks
-
-For a global row $i\in\{1,\ldots,48\}$, define
+For row $i\in\{1,\ldots,48\}$, define
 
 ```math
 q=\left\lfloor\frac{i-1}{6}\right\rfloor+1,
 \qquad r=i-6(q-1).
 ```
 
-Here $q$ is the global block-row index and $r$ is the row
+Here $q$ is the block row index and $r$ is the local row
 index within a $6\times6$ block.
 
-Let $\mathcal L_q$ be the list of pairs $(j,M)$ specifying
-the nonzero blocks in block row $q$: $j$ is the block-column
-index and $M=K_{qj}$.
+Let $\mathcal L_q$ be the list of pairs $(j,$K_{qj}$)$ specifying the nonzero blocks in block row $q$
 
 | Block row $q$ | List $\mathcal L_q$ |
 |---|---|
@@ -362,9 +276,7 @@ R_A^{(2)}(i)=
 \underset{(j,M)\in\mathcal L_q}{\Vert}
 \mathcal S_{6(j-1)}\!\left(R_M(r)\right).
 ```
-
-The concatenation follows the order of the table. Equivalently,
-each pair $(s,v)\in R_M(r)$ becomes the global pair
+Each pair $(s,v)\in R_M(r)$ becomes the global pair
 
 ```math
 \bigl(6(j-1)+s,\ v\bigr).
@@ -373,21 +285,3 @@ each pair $(s,v)\in R_M(r)$ becomes the global pair
 This formulation directly reuses the row representations of
 $D_q,X,Y,\widehat X,\widehat Y,C,F$ and their transposes.
 
-### 8.4 Relationship between the two representations
-
-Both constructions list exactly the nonzero entries of the
-same row of $A$, with identical coefficients and no duplicates.
-
-Their list order can differ. The second construction gives
-increasing global column indices if every local row list is
-itself sorted. The first construction need not be sorted.
-
-Both contain at most 12 pairs per row, consistently with
-the matrix sparsity $d=12$.
-
-The first representation explicitly uses the additive
-decomposition and repeated placement rules. The second
-uses one block-selection table and one local-to-global
-column conversion. These are two descriptions of the same
-matrix; neither description alone establishes a smaller
-circuit gate count.

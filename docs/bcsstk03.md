@@ -2,7 +2,7 @@
 
 [SuiteSparse Matrix Collection — HB/bcsstk03](https://sparse.tamu.edu/HB/bcsstk03)
 
-MATLAB indices, starting at 1. Unless stated otherwise, indices follow the original file ordering. The matrix in HB/bcsstk03 will be denoted A.
+MATLAB indices, starting at 1. Unless stated otherwise, indices follow the original file ordering. The studied matrix will be denoted A.
 
 ## General properties
 

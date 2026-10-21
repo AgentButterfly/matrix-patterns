@@ -17,7 +17,7 @@ MATLAB indices, starting at 1. Unless stated otherwise, indices follow the origi
 
 ## Support plot
 
-![Sparsity pattern of A](images/HB/bcsstk01.png)
+![Sparsity pattern of A](../images/HB/bcsstk01.png)
 
 ## 1. Partition into eight blocks of size 6
 

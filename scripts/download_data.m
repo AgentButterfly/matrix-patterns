@@ -1,19 +1,25 @@
-%% Choose the matrix
-% These match the "Group" and "Name" fields on SuiteSparse.
-group = 'HB';
-name  = 'bcsstm22';
 
-%% Set the download folder relative to this script
+%% Choose the matrix
+group = 'HB';
+name  = 'bcsstk01';
+
+%% Set paths relative to this script
 scriptDir = fileparts(mfilename('fullpath'));
 repoDir = fileparts(scriptDir);
 
 dataDir = fullfile(repoDir, 'data', 'raw', group);
+imageDir = fullfile(repoDir, 'images', group);
 
 if ~isfolder(dataDir)
     mkdir(dataDir);
 end
 
+if ~isfolder(imageDir)
+    mkdir(imageDir);
+end
+
 filePath = fullfile(dataDir, [name '.mat']);
+imagePath = fullfile(imageDir, [name '.png']);
 
 %% Download the matrix if it is not already saved
 url = sprintf('https://sparse.tamu.edu/mat/%s/%s.mat', ...
@@ -33,14 +39,18 @@ loaded = load(filePath, 'Problem');
 Problem = loaded.Problem;
 A = Problem.A;
 
-%% Display basic information and the sparsity pattern
+%% Display basic information
 fprintf('Matrix: %s/%s\n', group, name);
 fprintf('Size: %d rows x %d columns\n', size(A, 1), size(A, 2));
 fprintf('Nonzero entries: %d\n', nnz(A));
 
-figure;
+%% Display and save the sparsity pattern
+figSpy = figure;
 spy(A);
 title([group '/' name], 'Interpreter', 'none');
+
+exportgraphics(figSpy, imagePath, 'Resolution', 300);
+fprintf('Sparsity plot saved to: %s\n', imagePath);
 
 %% Display the matrix as a table
 fig = uifigure('Name', [group '/' name]);

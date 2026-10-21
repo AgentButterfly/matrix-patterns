@@ -19,7 +19,7 @@ MATLAB indices, starting at 1. Unless stated otherwise, indices follow the origi
 
 ## Support visualization
 
-![Sparsity pattern of A](images/bcsstk03.png)
+![Sparsity pattern of A](images/HB/bcsstk03.png)
 
 
 ## 1. Exact structure of A

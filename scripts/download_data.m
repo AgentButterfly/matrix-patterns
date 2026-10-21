@@ -1,7 +1,7 @@
 
 %% Choose the matrix
 group = 'HB';
-name  = 'bcsstk01';
+name  = 'bcsstk04';
 
 %% Set paths relative to this script
 scriptDir = fileparts(mfilename('fullpath'));

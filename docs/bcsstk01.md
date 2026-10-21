@@ -15,11 +15,9 @@ MATLAB indices, starting at 1. Unless stated otherwise, indices follow the origi
 | Sparsity coefficient | 12 |
 | Connected components of the support graph | **1**, containing all 48 indices |
 
-## Support plots
+## Support plot
 
-![Original support, block occupancy, and the two-chain decomposition](images/bcsstk01.png)
-
-The first panel shows the original support with a $6\times6$ block grid. The second shows which blocks are nonzero. In the third, blue entries belong to the retained two-chain matrix, while orange entries are the removed couplings.
+![Sparsity pattern of A](images/bcsstk01.png)
 
 ## 1. Partition into eight blocks of size 6
 

@@ -19,9 +19,8 @@ MATLAB indices, starting at 1. Unless stated otherwise, indices follow the origi
 
 ## Support visualization
 
-![Original support, block close-up, and grouped connected components](images/bcsstk03.png)
+![Sparsity pattern of A](images/bcsstk03.png)
 
-Each point represents a nonzero entry, regardless of its value or sign. The last panel uses the permutation defined in the connected-components section.
 
 ## 1. Exact structure of A
 

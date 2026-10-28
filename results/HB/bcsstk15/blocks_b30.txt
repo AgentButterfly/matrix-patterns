@@ -1,0 +1,57 @@
+BLOCK SIZE: 30
+Block grid: 132 x 132
+Nonzero blocks (whole matrix): 1344 / 17424
+Analyzed blocks (upper triangle): 738 / 8778
+Block half-bandwidth: 14
+Block tridiagonal: 0
+Distinct supports: 635
+Distinct exact blocks: 683
+Transpose pairs (distinct upper-triangle blocks only): 21
+
+REPEATED SUPPORT PATTERNS
+9 blocks: (10,17) (46,51) (42,55) (43,56) (56,69) (67,79) (69,81) (94,96) (127,131)
+6 blocks: (31,32) (43,44) (55,56) (67,68) (88,89) (95,96)
+6 blocks: (29,30) (63,75) (65,77) (66,78) (81,92) (101,111)
+5 blocks: (28,37) (74,80) (80,86) (82,89) (86,95)
+5 blocks: (14,15) (78,79) (98,99) (107,108) (115,116)
+5 blocks: (13,22) (21,32) (55,68) (117,124) (121,127)
+5 blocks: (30,31) (42,43) (77,78) (97,98) (106,107)
+5 blocks: (40,48) (72,73) (93,94) (96,100) (102,103)
+4 blocks: (78,78) (98,98) (107,107) (115,115)
+4 blocks: (27,28) (54,55) (66,67) (87,88)
+4 blocks: (9,14) (23,31) (36,42) (68,75)
+4 blocks: (45,46) (46,47) (56,57) (69,74)
+4 blocks: (20,21) (16,25) (20,31) (94,104)
+3 blocks: (46,56) (52,56) (57,64)
+3 blocks: (8,13) (22,31) (47,50)
+... 37 additional groups omitted
+
+EXACTLY EQUAL BLOCKS
+6 blocks: (46,51) (42,55) (56,69) (67,79) (69,81) (127,131)
+5 blocks: (14,15) (78,79) (98,99) (107,108) (115,116)
+4 blocks: (78,78) (98,98) (107,107) (115,115)
+4 blocks: (55,56) (67,68) (88,89) (95,96)
+4 blocks: (42,43) (77,78) (97,98) (106,107)
+4 blocks: (63,75) (65,77) (66,78) (81,92)
+3 blocks: (54,55) (66,67) (87,88)
+3 blocks: (64,76) (97,107) (106,115)
+3 blocks: (9,14) (23,31) (36,42)
+3 blocks: (10,17) (43,56) (94,96)
+2 blocks: (76,79) (97,99)
+2 blocks: (99,107) (108,115)
+2 blocks: (8,13) (22,31)
+2 blocks: (113,116) (112,118)
+2 blocks: (55,55) (67,67)
+... 21 additional groups omitted
+
+TRANSPOSE RELATIONSHIPS (distinct upper-triangle blocks only)
+6 distinct block pairs: (78,78) (98,98) (107,107) (115,115)  <->  (78,78) (98,98) (107,107) (115,115)
+6 distinct block pairs: (74,80) (80,86)  <->  (10,17) (43,56) (94,96)
+2 distinct block pairs: (76,79) (97,99)  <->  (70,75)
+1 distinct block pairs: (55,55) (67,67)  <->  (55,55) (67,67)
+1 distinct block pairs: (77,77) (97,97)  <->  (77,77) (97,97)
+1 distinct block pairs: (53,53) (65,65)  <->  (53,53) (65,65)
+1 distinct block pairs: (54,54) (66,66)  <->  (54,54) (66,66)
+1 distinct block pairs: (28,36)  <->  (70,74)
+1 distinct block pairs: (28,29)  <->  (85,89)
+1 distinct block pairs: (9,16)  <->  (84,93)

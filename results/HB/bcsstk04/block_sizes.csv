@@ -1,0 +1,7 @@
+BlockSize,NonzeroBlocks,TotalBlocks,UpperNonzeroBlocks,UpperTotalBlocks,BlockHalfBandwidth,BlockTridiagonal,DistinctSupports,BlocksInRepeatedSupports,DistinctExactBlocks,BlocksInExactRepeats,TransposePairs
+2,1220,4356,643,2211,23,0,12,643,421,350,304
+3,624,1936,334,990,15,0,13,334,195,222,96
+4,417,1089,225,561,11,0,87,188,208,30,0
+6,156,484,89,253,7,0,11,88,67,36,4
+8,135,289,76,153,5,0,68,14,72,7,0
+12,59,121,35,66,3,0,29,11,35,0,0

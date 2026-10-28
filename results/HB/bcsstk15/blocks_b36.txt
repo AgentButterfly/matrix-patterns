@@ -1,0 +1,55 @@
+BLOCK SIZE: 36
+Block grid: 110 x 110
+Nonzero blocks (whole matrix): 1096 / 12100
+Analyzed blocks (upper triangle): 603 / 6105
+Block half-bandwidth: 12
+Block tridiagonal: 0
+Distinct supports: 539
+Distinct exact blocks: 563
+Transpose pairs (distinct upper-triangle blocks only): 13
+
+REPEATED SUPPORT PATTERNS
+7 blocks: (35,46) (36,47) (47,58) (49,60) (73,82) (79,88) (102,107)
+6 blocks: (7,13) (19,26) (19,29) (31,42) (64,74) (72,81)
+5 blocks: (18,19) (26,27) (36,37) (81,82) (89,90)
+4 blocks: (31,32) (45,46) (55,56) (64,65)
+4 blocks: (17,18) (25,26) (35,36) (73,74)
+3 blocks: (46,46) (56,56) (65,65)
+3 blocks: (45,45) (55,55) (64,64)
+3 blocks: (30,32) (47,56) (57,65)
+3 blocks: (69,76) (77,82) (78,84)
+3 blocks: (44,45) (54,55) (63,64)
+3 blocks: (46,47) (56,57) (65,66)
+3 blocks: (52,53) (61,62) (70,79)
+3 blocks: (27,28) (38,39) (105,107)
+2 blocks: (54,57) (84,88)
+2 blocks: (45,54) (55,63)
+... 25 additional groups omitted
+
+EXACTLY EQUAL BLOCKS
+4 blocks: (35,46) (36,47) (47,58) (73,82)
+3 blocks: (46,46) (56,56) (65,65)
+3 blocks: (45,45) (55,55) (64,64)
+3 blocks: (30,32) (47,56) (57,65)
+3 blocks: (44,45) (54,55) (63,64)
+3 blocks: (46,47) (56,57) (65,66)
+3 blocks: (45,46) (55,56) (64,65)
+3 blocks: (19,26) (64,74) (72,81)
+2 blocks: (45,54) (55,63)
+2 blocks: (74,74) (96,96)
+2 blocks: (46,56) (56,65)
+2 blocks: (36,36) (89,89)
+2 blocks: (44,44) (54,54)
+2 blocks: (45,55) (55,64)
+2 blocks: (46,55) (56,64)
+... 16 additional groups omitted
+
+TRANSPOSE RELATIONSHIPS (distinct upper-triangle blocks only)
+3 distinct block pairs: (46,46) (56,56) (65,65)  <->  (46,46) (56,56) (65,65)
+3 distinct block pairs: (45,45) (55,55) (64,64)  <->  (45,45) (55,55) (64,64)
+2 distinct block pairs: (69,76) (78,84)  <->  (7,13)
+1 distinct block pairs: (74,74) (96,96)  <->  (74,74) (96,96)
+1 distinct block pairs: (36,36) (89,89)  <->  (36,36) (89,89)
+1 distinct block pairs: (44,44) (54,54)  <->  (44,44) (54,54)
+1 distinct block pairs: (77,82)  <->  (31,42)
+1 distinct block pairs: (103,105)  <->  (29,37)

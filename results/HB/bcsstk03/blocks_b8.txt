@@ -1,0 +1,20 @@
+BLOCK SIZE: 8
+Block grid: 14 x 14
+Nonzero blocks (whole matrix): 40 / 196
+Analyzed blocks (upper triangle): 27 / 105
+Block half-bandwidth: 1
+Block tridiagonal: 1
+Distinct supports: 4
+Distinct exact blocks: 26
+Transpose pairs (distinct upper-triangle blocks only): 0
+
+REPEATED SUPPORT PATTERNS
+13 blocks: (1,2) (2,3) (3,4) (4,5) (5,6) (6,7) (7,8) (8,9) (9,10) (10,11) (11,12) (12,13) (13,14)
+11 blocks: (1,1) (4,4) (5,5) (6,6) (7,7) (8,8) (10,10) (11,11) (12,12) (13,13) (14,14)
+2 blocks: (2,2) (9,9)
+
+EXACTLY EQUAL BLOCKS
+2 blocks: (2,3) (3,4)
+
+TRANSPOSE RELATIONSHIPS (distinct upper-triangle blocks only)
+(none)

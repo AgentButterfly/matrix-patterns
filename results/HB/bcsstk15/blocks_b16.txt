@@ -1,0 +1,63 @@
+BLOCK SIZE: 16
+Block grid: 247 x 247
+Nonzero blocks (whole matrix): 3135 / 61009
+Analyzed blocks (upper triangle): 1691 / 30628
+Block half-bandwidth: 27
+Block tridiagonal: 0
+Distinct supports: 1429
+Distinct exact blocks: 1586
+Transpose pairs (distinct upper-triangle blocks only): 52
+
+REPEATED SUPPORT PATTERNS
+7 blocks: (59,79) (77,97) (98,118) (128,139) (140,160) (143,160) (191,205)
+7 blocks: (14,15) (59,60) (80,81) (125,126) (200,201) (215,216) (227,228)
+6 blocks: (5,5) (26,26) (59,59) (146,146) (200,200) (215,215)
+6 blocks: (16,25) (76,100) (127,148) (133,154) (169,175) (208,223)
+6 blocks: (4,15) (71,72) (61,84) (82,105) (151,159) (151,171)
+5 blocks: (26,39) (86,108) (131,138) (167,183) (179,195)
+5 blocks: (15,25) (27,40) (105,118) (138,157) (165,181)
+5 blocks: (3,8) (195,209) (204,209) (204,218) (213,224)
+5 blocks: (15,15) (60,60) (201,201) (216,216) (228,228)
+5 blocks: (51,66) (72,87) (111,132) (129,141) (177,186)
+5 blocks: (27,28) (135,136) (153,154) (186,187) (192,193)
+5 blocks: (7,18) (67,78) (67,90) (121,123) (160,180)
+5 blocks: (118,140) (127,140) (139,161) (202,218) (217,230)
+5 blocks: (23,32) (23,38) (44,62) (53,62) (152,170)
+4 blocks: (84,105) (138,150) (150,168) (207,219)
+... 145 additional groups omitted
+
+EXACTLY EQUAL BLOCKS
+6 blocks: (14,15) (59,60) (80,81) (200,201) (215,216) (227,228)
+5 blocks: (15,15) (60,60) (201,201) (216,216) (228,228)
+4 blocks: (16,25) (76,100) (127,148) (133,154)
+4 blocks: (118,140) (139,161) (202,218) (217,230)
+4 blocks: (59,79) (77,97) (98,118) (143,160)
+3 blocks: (84,105) (138,150) (150,168)
+3 blocks: (13,23) (106,119) (130,149)
+3 blocks: (94,118) (100,124) (103,127)
+3 blocks: (4,15) (61,84) (151,159)
+3 blocks: (53,76) (158,178) (227,238)
+2 blocks: (131,138) (167,183)
+2 blocks: (26,39) (179,195)
+2 blocks: (151,169) (232,238)
+2 blocks: (136,154) (211,217)
+2 blocks: (197,211) (212,223)
+... 72 additional groups omitted
+
+TRANSPOSE RELATIONSHIPS (distinct upper-triangle blocks only)
+10 distinct block pairs: (15,15) (60,60) (201,201) (216,216) (228,228)  <->  (15,15) (60,60) (201,201) (216,216) (228,228)
+4 distinct block pairs: (32,46) (113,133)  <->  (124,146) (238,245)
+3 distinct block pairs: (84,105) (138,150) (150,168)  <->  (102,126)
+2 distinct block pairs: (154,171)  <->  (6,16) (27,43)
+2 distinct block pairs: (131,138) (167,183)  <->  (108,119)
+2 distinct block pairs: (151,169) (232,238)  <->  (4,13)
+2 distinct block pairs: (57,77) (78,98)  <->  (221,234)
+2 distinct block pairs: (72,87)  <->  (129,141) (177,186)
+2 distinct block pairs: (54,74) (177,179)  <->  (149,162)
+2 distinct block pairs: (74,92)  <->  (134,152) (188,197)
+2 distinct block pairs: (77,101) (221,224)  <->  (176,191)
+1 distinct block pairs: (49,67)  <->  (208,223)
+1 distinct block pairs: (193,208)  <->  (169,175)
+1 distinct block pairs: (85,104)  <->  (107,118)
+1 distinct block pairs: (148,167)  <->  (152,172)
+... 15 additional relationships omitted

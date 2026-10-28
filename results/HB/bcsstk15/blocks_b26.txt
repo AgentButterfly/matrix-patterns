@@ -1,0 +1,50 @@
+BLOCK SIZE: 26
+Block grid: 152 x 152
+Nonzero blocks (whole matrix): 1804 / 23104
+Analyzed blocks (upper triangle): 978 / 11628
+Block half-bandwidth: 17
+Block tridiagonal: 0
+Distinct supports: 924
+Distinct exact blocks: 956
+Transpose pairs (distinct upper-triangle blocks only): 3
+
+REPEATED SUPPORT PATTERNS
+5 blocks: (36,37) (63,64) (102,103) (123,124) (132,133)
+4 blocks: (67,78) (82,93) (91,102) (124,132)
+4 blocks: (36,48) (48,60) (81,93) (114,123)
+3 blocks: (47,59) (71,83) (113,122)
+3 blocks: (77,88) (83,94) (116,121)
+3 blocks: (35,36) (62,63) (101,102)
+3 blocks: (31,32) (76,77) (88,89)
+3 blocks: (33,48) (48,63) (66,81)
+3 blocks: (44,59) (65,80) (143,149)
+2 blocks: (110,110) (146,146)
+2 blocks: (50,50) (113,113)
+2 blocks: (37,37) (64,64)
+2 blocks: (68,68) (92,92)
+2 blocks: (38,38) (53,53)
+2 blocks: (71,82) (140,142)
+... 26 additional groups omitted
+
+EXACTLY EQUAL BLOCKS
+3 blocks: (36,48) (48,60) (81,93)
+3 blocks: (63,64) (102,103) (132,133)
+2 blocks: (50,50) (113,113)
+2 blocks: (49,49) (112,112)
+2 blocks: (91,102) (124,132)
+2 blocks: (47,59) (113,122)
+2 blocks: (22,28) (37,49)
+2 blocks: (83,94) (116,121)
+2 blocks: (50,51) (113,114)
+2 blocks: (62,63) (101,102)
+2 blocks: (49,50) (112,113)
+2 blocks: (76,77) (88,89)
+2 blocks: (63,78) (102,114)
+2 blocks: (62,77) (101,113)
+2 blocks: (98,111) (140,147)
+... 5 additional groups omitted
+
+TRANSPOSE RELATIONSHIPS (distinct upper-triangle blocks only)
+1 distinct block pairs: (50,50) (113,113)  <->  (50,50) (113,113)
+1 distinct block pairs: (49,49) (112,112)  <->  (49,49) (112,112)
+1 distinct block pairs: (142,145)  <->  (37,52)
